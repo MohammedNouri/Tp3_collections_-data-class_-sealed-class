@@ -4,7 +4,7 @@ package com.example.tp3_kotlin
 
 import java.util.Date
 
-
+//1.Créer la data classe Etape
 data class Etape (
     var name:String,
     val DateDebut: Date ,
@@ -14,6 +14,7 @@ data class Etape (
 enum class Difficulte{
     Facile,Difficile
 }
+//3.Créer la classe Cycliste avec les caractéristiques déjà abordés, dans la classe cycliste, ajouter une propriété de type hashMapOf <Etape,Resultat>(dictionnaire) ,
 class Cycliste(
     var name: String,
     var prenom:String,
@@ -21,7 +22,7 @@ class Cycliste(
     var age:Int,
     var HistoriqueDesEtapes:HashMap<Etape,Resulat> = HashMap()
 ){
-
+    // fun nouvelleEtape(etape :Etape, resultat :Resultat)
     fun nouvelleEtape(etape: Etape,resulat: Resulat):Boolean{
         for (K in HistoriqueDesEtapes){
             if (K.key.name == etape.name){
@@ -31,7 +32,7 @@ class Cycliste(
         HistoriqueDesEtapes.put(etape,resulat)
         return true
     }
-
+    // fun toString()
     override fun toString(): String {
         var history :String=""
         for ((K,V) in HistoriqueDesEtapes){
@@ -41,6 +42,7 @@ class Cycliste(
     }
 
 }
+//.Créer la data classe Résultat avec comme caractéristiques le temps effectué et le classement
 data class Resulat(var duree :Double,var classement:Int){}
 
 fun main() {

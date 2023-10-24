@@ -1,7 +1,7 @@
 package com.example.tp3_kotlin
 
 import java.util.Date
-
+//1.Créer la data classe Etape
 data class Etapes (
     var name:String,
     val DateDebut: Date,
@@ -11,6 +11,7 @@ data class Etapes (
 enum class Difficultes{
     Facile,Difficile
 }
+//3.Créer la classe Cycliste avec les caractéristiques déjà abordés, dans la classe cycliste, ajouter une propriété de type hashMapOf <Etape,Resultat>(dictionnaire) ,
 class Cyclistes(
     var name: String,
     var prenom:String,
@@ -18,7 +19,7 @@ class Cyclistes(
     var age:Int,
     var HistoriqueDesEtapes:HashMap<Etapes,Resultats> = HashMap()
 ){
-
+    // fun nouvelleEtape(etape: Etapes,resulat: Resultats):Boolean
     fun nouvelleEtape(etape: Etapes,resulat: Resultats):Boolean{
         for (K in HistoriqueDesEtapes){
             if (K.key.name == etape.name){
@@ -28,10 +29,11 @@ class Cyclistes(
         HistoriqueDesEtapes.put(etape,resulat)
         return true
     }
-
+      // fun toString()
     override fun toString(): String {
         var history :String=""
         for ((K,V) in HistoriqueDesEtapes){
+            // Cast V , car V retourne objet de Resultats qui contient Termine et Abandone
             history = when(V){
                 is Resultats.Termine -> "  nom de l'etape : ${K.name} ,le  temps effectue : ${V.tempsEffectue} et le classement : ${V.classement}"
                 is Resultats.Abandonne->"  nom de l'etape : ${K.name} , la distance parcourue : ${V.distanceParcourue} m et la raison d'abandonné : ${V.raison}"
@@ -41,8 +43,11 @@ class Cyclistes(
     }
 
 }
+// Creer class Resultat Sealed
 sealed class Resultats{
+    // data class Termine
     data class Termine(var tempsEffectue:Double, var classement : Int) : Resultats()
+    // data class Abandonne
     data class Abandonne(var distanceParcourue:Double,var raison:String) :Resultats()
 }
 
