@@ -1,18 +1,24 @@
 package com.example.tp3_kotlin
 
 
-
+//1.Créer une classe Joueur avec les propriétés mentionnées.
+//Peut-on la déclarer data class ou classe normale ? pourquoi ?
+// on peut la declarer comme une data class parceque est un class contient seulement les caractéristiques
 data class Joueur(var nom:String,var numero:Int,var points:Int){
 
 }
+//2. Créer  "enum" Sigle
 enum class Sigle(){
     OCS,OCK,RCA,WAC
 }
+//3.Créer l’énumération Pays avec les différents pays participant
+//à la compétition
 enum class Pays(){
     Maroc,TUNISIE,EGYPTE,ALGERIE,MOURITANTE
 }
+//4. Créer la classe Equipe
 class Equipe(var pays: Pays,var sigle: Sigle, var ListJoueur:ArrayList<Joueur> = ArrayList()){
-
+    //5.Methode ajout qui ajoute sur ListJoueur
     fun ajout(joueur: Joueur):Boolean{
 
         for (i in ListJoueur){
@@ -23,6 +29,8 @@ class Equipe(var pays: Pays,var sigle: Sigle, var ListJoueur:ArrayList<Joueur> =
         ListJoueur.add(joueur)
         return true
     }
+    //6.Methode rechercher qui recherche sur ListJoueur
+
     fun rechercher(joueur: Joueur):Int{
       /*  for (i in 0..ListJoueur.size-1){
             if (ListJoueur.get(i).nom == joueur.nom){
@@ -34,6 +42,8 @@ class Equipe(var pays: Pays,var sigle: Sigle, var ListJoueur:ArrayList<Joueur> =
         }
         return -1
     }
+    //7.Methode suppression qui supprime un joueur sur ListJoueur
+
     fun suppression(joueur: Joueur):Boolean{
       /*  for (i in ListJoueur){
             if (i.numero == joueur.numero){
@@ -52,6 +62,7 @@ class Equipe(var pays: Pays,var sigle: Sigle, var ListJoueur:ArrayList<Joueur> =
         }
         return false
         }
+    //8.Methode setPoints qui modifier les points gagne par un joueur
     fun setPoints(joueur: Joueur,points: Int){
         println(" Points Avant Update :${joueur.points} \n -------------------------------------------")
         joueur.points = points
