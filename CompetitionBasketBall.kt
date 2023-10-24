@@ -1,12 +1,6 @@
 package com.example.tp3_kotlin
 
-import android.os.Build
-import androidx.annotation.RequiresApi
-import java.time.Instant
-import java.time.LocalDate
-import java.time.Month
-import java.time.Year
-import java.util.Date
+
 
 data class Joueur(var nom:String,var numero:Int,var points:Int){
 
@@ -64,7 +58,6 @@ class Equipe(var pays: Pays,var sigle: Sigle, var ListJoueur:ArrayList<Joueur> =
         println("Points Apres Updte :"+joueur.points)
     }
 }
-@RequiresApi(Build.VERSION_CODES.O)
 fun main() {
 
     var joueur1 = Joueur("Mohammed",14,15)
@@ -94,6 +87,5 @@ fun main() {
     OCS.setPoints(joueur1,25)
 
     println(OCS.rechercher(joueur3))
-    val dateDebut: Date = Date(2023-1900,9,23)
-    println(dateDebut)
+
 }
